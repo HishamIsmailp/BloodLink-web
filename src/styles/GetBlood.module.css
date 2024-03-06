@@ -44,6 +44,7 @@
 }
 
 .getBloodItemsContent{
+  z-index: 2;
     width: 100%;
     height: 400px;
     position: absolute;
@@ -56,7 +57,7 @@
     top: 0;
     background-color: #fff;
     border-radius: 400px;
-    box-shadow: 0px 4px 100px 2px #CECECE40;
+    box-shadow: 0px 4px 100px 2px #201e1e40;
 }
 
 .getBloodItemImg{
