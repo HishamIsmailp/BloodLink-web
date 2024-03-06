@@ -47,6 +47,7 @@
 
 .collaboratorItem1, .collaboratorItem3 {
   width: 23%;
+  z-index: -3;
   height: 350px;
   opacity: 0.7;
   filter: blur(1px);
