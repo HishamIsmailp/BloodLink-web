@@ -6,14 +6,16 @@
 }
 .navLinks{
     text-decoration: none;
-    align-items: center;
+    align-content: center;
     font-size: 24px !important;
     color: #000;
     font-weight: 400 !important;
 }
 .navDropDown{
     background-color: transparent;
+    border: 0px solid ;
 }
 .dropDownItem{
     font-size: 18px !important;
+    
 }

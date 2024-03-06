@@ -14,7 +14,8 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="d-flex align-items-center justify-content-between w-100">
+    <div className="p-5 w-100">
+      <nav className="d-flex align-items-center justify-content-between w-100 z-3">
       <Link href={"/"} className="d-flex bg-white rounded-circle p-3">
         <Image src={Logo} alt="logo-img" className="justify-content-start" />
       </Link>
@@ -36,17 +37,17 @@ export default function NavBar() {
         <Link
           className={Style.navLinks}
           style={{ borderBottom: getActivePage(pathname, "/findBlood") }}
-          href={"/find-blood"}
+          href={"/findBlood"}
         >
           Find Blood
         </Link>
           <button
             type="button"
-            className={`${Style.navLinks} ${Style.navDropDown} border-0 dropdown-toggle`}
+            className={`${Style.navLinks} ${Style.navDropDown} dropdown-toggle pb-3`}
             style={{
               borderBottom:
-                getActivePage(pathname, "/registerAsDonor") ||
-                getActivePage(pathname, "/registerAsOrganization"),
+                getActivePage(pathname, "/regAsDoner") ||
+                getActivePage(pathname, "/regAsOrg"),
             }}
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -55,7 +56,7 @@ export default function NavBar() {
           </button>
           <ul className={`dropdown-menu`}>
             <li>
-              <Link className={`${Style.dropDownItem} dropdown-item`} href="/registerAsOrganization">
+              <Link className={`${Style.dropDownItem} dropdown-item`} href="/regAsOrg">
                 Register As Organization
               </Link>
             </li>
@@ -73,5 +74,6 @@ export default function NavBar() {
         </Link>
       </div>
     </nav>
+    </div>
   );
 }

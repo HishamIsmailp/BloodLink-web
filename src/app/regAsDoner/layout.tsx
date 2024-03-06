@@ -8,7 +8,7 @@ export default function regAsDonerLayout({
     return (
       <html lang="en">
         <body>
-          <div className=" p-3 top-0 w-100"><NavBar /></div>
+          <div className="position-sticky top-0"><NavBar /></div>
           <div>{children}</div>
           </body>
       </html>

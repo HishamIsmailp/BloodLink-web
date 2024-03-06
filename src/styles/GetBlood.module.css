@@ -1,6 +1,8 @@
+/* General styles */
 .getBloodContainer {
   padding: 5%;
 }
+
 .mainTitle {
   font-size: 36px;
   font-weight: 700;
@@ -8,6 +10,7 @@
   margin-bottom: 3%;
 }
 
+/* Section: getBloodContent */
 .getBloodContent {
   display: flex;
   justify-content: space-between;
@@ -16,56 +19,65 @@
   height: 800px;
   width: 100%;
   background-image: url("../utils/images/get-blood-life.png");
-  background-size: 670px;
+  background-size: 36vw;
   background-repeat: no-repeat;
   background-position: center bottom;
+  box-shadow: none;
+  z-index: -4;
 }
 
-.getBloodItems, .getBloodItemsCenter{
-    background-color: white;
-    position: relative;
-    width: 27%;
-    z-index: -4;
+/* Section: getBloodItems and getBloodItemsCenter */
+.getBloodItems,
+.getBloodItemsCenter {
+  background-color: white;
+  width: 28vw;
+  height: 40vh;
+  position: relative;
+  background-color: transparent;
+  box-shadow: none;
+  z-index: -1;
 }
 
-.getBloodItemsCenter{
-    align-self: self-start;
+.getBloodItemsCenter {
+  align-self: flex-start;
 }
 
-.getBloodItemsCount{
- font-size: 70px;
- font-weight: 700;
- text-align: center;
- width: 110px;
- padding: 1%;
- border: 6px solid #000;
- box-shadow: 0px 4px 10px 2px #91909040;
- border-radius: 60px;
+.getBloodItemsCount {
+  font-size: 70px;
+  font-weight: 700;
+  text-align: center;
+  width: 110px;
+  padding: 1%;
+  z-index: -4;
+  background-color: transparent;
+  border: 6px solid #000;
+  box-shadow: 0px 4px 10px 2px #91909040;
+  border-radius: 100px;
 }
 
-.getBloodItemsContent{
+.getBloodItemsContent {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  margin: 3%;
+  padding: 5%;
   z-index: 2;
-    width: 100%;
-    height: 400px;
-    position: absolute;
-    margin: 3%;
-    padding: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    background-color: #fff;
-    border-radius: 400px;
-    box-shadow: 0px 4px 100px 2px #201e1e40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  background-color: #fff;
+  border-radius: 400px;
+  box-shadow: 0px 4px 20px 2px #201e1e40;
 }
 
-.getBloodItemImg{
-    border-radius: 30px;
-    margin-bottom: 4%;
+.getBloodItemImg {
+  border-radius: 30px;
+  margin-bottom: 4%;
 }
 
-.getBloodItemText{
-    text-align: center;
-    font-size:22px;
+.getBloodItemText {
+  text-align: center;
+  font-size: 22px;
 }

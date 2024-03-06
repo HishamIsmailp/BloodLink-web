@@ -27,7 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 450px;
 }
 
 .collaborator {
@@ -37,18 +37,18 @@
   background-color: #fff;
   box-shadow: 0px 4px 100px 2px #a5a4a440;
   border-radius: 10px;
-  width: 23%;
+  width: 18vw;
   z-index: -3;
-  height: 350px;
+  height: 35vh;
   opacity: 0.7;
   filter: blur(1px);
-  transition: all 0.3s ease;
+  transition: all 0.6s ease-in-out;
 }
 
 .activeCollaborator {
   box-shadow: 0px 4px 100px 2px #8f8e8e40;
-  width: 25%;
-  height: 400px;
+  width: 20vw;
+  height: 40vh;
   opacity: 1;
   filter: blur(0px);
   margin: 0 2%; 

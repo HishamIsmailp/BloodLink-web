@@ -10,7 +10,7 @@ import Style from "./page.module.css";
 export default function Home() {
   return (
     <>
-      <div className="p-5 m-2 mt-1 position-fixed top-0 w-100"><NavBar /></div>
+    <div className="position-fixed top-0 w-100"><NavBar /></div>
     <Banner />
     <OurMission />
     <OurCollaborators />
