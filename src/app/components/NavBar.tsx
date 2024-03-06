@@ -40,37 +40,31 @@ export default function NavBar() {
         >
           Find Blood
         </Link>
-        <button
-          type="button"
-          className={`${Style.navLinks} ${Style.navDropDown} border-0 dropdown-toggle`}
-          style={{
-            borderBottom:
-              getActivePage(pathname, "/registerAsDonor") ||
-              getActivePage(pathname, "/registerAsOrganization"),
-          }}
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Register Now
-        </button>
-        <ul className={`dropdown-menu`}>
-          <li>
-            <Link
-              className={`${Style.dropDownItem} dropdown-item`}
-              href="/registerAsOrganization"
-            >
-              Register As Organization
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={`${Style.dropDownItem} dropdown-item`}
-              href="/registerAsDonor"
-            >
-              Register As Donor
-            </Link>
-          </li>
-        </ul>
+          <button
+            type="button"
+            className={`${Style.navLinks} ${Style.navDropDown} border-0 dropdown-toggle`}
+            style={{
+              borderBottom:
+                getActivePage(pathname, "/registerAsDonor") ||
+                getActivePage(pathname, "/registerAsOrganization"),
+            }}
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Register Now
+          </button>
+          <ul className={`dropdown-menu`}>
+            <li>
+              <Link className={`${Style.dropDownItem} dropdown-item`} href="/registerAsOrganization">
+                Register As Organization
+              </Link>
+            </li>
+            <li>
+              <Link className={`${Style.dropDownItem} dropdown-item`} href="/regAsDoner">
+                Register As Donor
+              </Link>
+            </li>
+          </ul>
         <Link
           className={`${Style.navLinks} btn btn-outline-dark p-2 ps-5 pe-5`}
           href={"/logIn"}

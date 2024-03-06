@@ -1,0 +1,184 @@
+.mainContianer {
+  width: 95vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+.contianer {
+  width: 95vw;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-self: center;
+}
+
+.InputGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90vw;
+  padding-left: 25px;
+}
+.nameInputField {
+  width: 400px;
+  height: 40px;
+  color: #000;
+  border-radius: 5px;
+  border-width: 1px;
+}
+.inputTitleContainer {
+  width: 180px;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
+.inputDistrictContainer{
+  height: 38px;
+  border: 1px;
+  border: 1px solid black;
+  width: 400px;
+}
+.inputTitle {
+  color: #000;
+  font-size: medium;
+  font-weight: bold;
+}
+.phoneInputField {
+  width: 900px;
+  height: 40px;
+  color: #000;
+  border-radius: 5px;
+  border-width: 1px;
+}
+.addressInputField {
+  width: 400px;
+  height: 130px;
+  color: #000;
+  border-radius: 5px;
+  border-width: 1px;
+}
+.addressTitleContainer {
+  width: 180px;
+  display: flex;
+  justify-content: flex-end;
+  align-self: f;
+}
+.agebloodcontainer {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.agebloodSubcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.agebloodTitleContiner {
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+.agebloodInputfield {
+  width: 280px;
+  height: 40px;
+  color: #000;
+  border-radius: 5px;
+  border-width: 1px;
+  margin-left: 30px;
+}
+.stateContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 210px;
+
+}
+.stateInputfield {
+  width: 273px;
+  height: 40px;
+  color: #000;
+  border-radius: 5px;
+  border-width: 1px;
+  margin-left: 30px;
+}
+.tickBoxContainer {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: center;
+}
+.submitBoxContainer {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: flex-end;
+  padding-right: 70px;
+}
+.subButton {
+  width: 140px;
+  height: 40px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+}
+.subButtonWhite{
+  width: 140px;
+  height: 40px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: #121111;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+}
+.dorpdownBtnContainer {
+ width: 290px;
+ 
+}
+.dorpdownBtn{
+  height: 38px;
+  border: 1px;
+  border: 1px solid black;
+  width: 270px;
+}
+.stateDorpdownBtn{
+  height: 38px;
+  border: 1px;
+  border: 1px solid black;
+  width: 270px;
+  margin-left: 30px;
+}
+.checkBox{
+  border-radius: 5px;
+}
+
+.nameInputField,
+.phoneInputField::placeholder {
+  padding-left: 20px;
+  color: black;
+}
+.addressInputField::placeholder {
+  padding-left: 20px;
+  color: black;
+}
