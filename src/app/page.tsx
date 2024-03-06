@@ -1,11 +1,18 @@
-import Image from 'next/image';
+import Banner from "./components/Banner";
 
-import Banner from '../utils/images/banner.png';
+import GetBlood from "./components/GetBlood";
+import OurCollaborators from "./components/OurCollaborators";
+import OurMission from "./components/OurMission";
+
+import Style from "./page.module.css";
 
 export default function Home() {
   return (
-    <div style={{backgroundImage: Banner.src, backgroundSize: "cover" }}>
-      <div className='min-vh-100 w-100'>pgfghjk</div>
-    </div>
+    <>
+    <Banner />
+    <OurMission />
+    <OurCollaborators />
+    <GetBlood />
+    </>
   );
 }

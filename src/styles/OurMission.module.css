@@ -1,0 +1,12 @@
+.container{
+    padding: 6%;
+}
+.missionBox{
+    box-shadow: 0px 4px 100px 3px #DCDCDC40;
+    padding: 3% 5%;
+}
+.ourMissionTitle{
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 1%;
+}
