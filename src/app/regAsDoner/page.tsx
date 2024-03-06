@@ -1,5 +1,5 @@
 import React from "react";
-import PageTitle from "../componets/pageTitle";
+import PageTitle from "../components/pageTitle";
 import Submiticon from "@/utils/images/submiticon";
 import Style from "../../styles/regAsDoner.module.css";
 
