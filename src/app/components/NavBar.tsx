@@ -23,7 +23,7 @@ export default function NavBar() {
             <Link className={Style.navLinks} style={{ "borderBottom": getActivePage(pathname, "/") }} href={"/"}>Home</Link>
             <Link className={Style.navLinks} style={{ "borderBottom": getActivePage(pathname, "/about-us") }} href={"/about-us"}>About Us</Link>
             <Link className={Style.navLinks} style={{"borderBottom": getActivePage(pathname, "/find-blood")}} href={"/find-blood"}>Find Blood</Link>
-            <Link className={Style.navLinks} style={{"borderBottom": getActivePage(pathname, "/register-now")}} href={"/register-now"}>Register Now</Link>
+            <Link className={Style.navLinks} style={{"borderBottom": getActivePage(pathname, "/regAsDoner")}} href={"/regAsDoner"}>Register Now</Link>
             <Link className={`${Style.navLinks} btn btn-outline-dark p-2 ps-5 pe-5`} href={"/login"}>Log In</Link>
         </div>
     </nav>

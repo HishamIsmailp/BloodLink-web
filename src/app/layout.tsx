@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="p-5 m-2 position-fixed top-0 w-100"><NavBar /></div>
+        {/* <div className="p-5 m-2 position-sticky top-0 w-100"><NavBar /></div> */}
         <div>{children}</div>
         </body>
       <BootstrapJs />

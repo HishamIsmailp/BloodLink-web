@@ -1,7 +1,7 @@
 .titleContianer {
   width: 90vw;
   height: 15vh;
-  background-color: #e72727;
+  background-color: #d40c0c;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -10,5 +10,5 @@
 .title {
   color: #ffffff;
   font-size: 36px;
-  font-weight: 900;
+  font-weight: 600;
 }
