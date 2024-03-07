@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import PageTitle from "../components/pageTitle";
 import Submiticon from "@/utils/images/submiticon";
 import Submiticonwhite from "@/utils/images/submiticonwhite";
 import State from "../../utils/objects";
+import { fromInputs } from "@/utils/types";
 import Style from "../../styles/regAsDoner.module.css";
 
 export default function page() {
@@ -11,6 +13,15 @@ export default function page() {
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const stateInstance = new State();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<fromInputs>();
+  const onSubmit: SubmitHandler<fromInputs> = (data) =>
+    console.log("*fromInputs**", data);
 
   const handleCheckboxChange = () => {
     if (submitState == true) {
@@ -31,7 +42,11 @@ export default function page() {
   return (
     <div className={Style.mainContianer}>
       <PageTitle title="Register As Donor" />
-      <div className={`shadow-lg mb-5  rounded ${Style.contianer}`}>
+
+      <form
+        className={`shadow-lg mb-5  rounded ${Style.contianer}`}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
             <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
@@ -45,6 +60,7 @@ export default function page() {
               placeholder="Fist name"
               style={{ marginRight: "100px" }}
               className={Style.nameInputField}
+              {...register("firstName")}
             />
             <input
               type="text"
@@ -52,6 +68,7 @@ export default function page() {
               placeholder="Last name"
               style={{ marginRight: "40px" }}
               className={Style.nameInputField}
+              {...register("lastname")}
             />
           </div>
         </div>
@@ -68,6 +85,7 @@ export default function page() {
               aria-label="Number"
               placeholder="Number"
               className={Style.phoneInputField}
+              {...register("phoneNumber")}
             />
           </div>
         </div>
@@ -84,6 +102,7 @@ export default function page() {
               aria-label="Email"
               placeholder="Mail  Id "
               className={Style.phoneInputField}
+              {...register("email")}
             />
           </div>
         </div>
@@ -101,6 +120,7 @@ export default function page() {
               placeholder="address"
               style={{ marginRight: "100px" }}
               className={Style.addressInputField}
+              {...register("address")}
             />
             <div className={Style.agebloodcontainer}>
               <div className={Style.agebloodSubcontainer}>
@@ -110,8 +130,9 @@ export default function page() {
                 <input
                   type="text"
                   aria-label="Last name"
-                  placeholder="Last name"
+                  placeholder="Age"
                   className={Style.agebloodInputfield}
+                  {...register("age")}
                 />
               </div>
               <div className={Style.agebloodSubcontainer}>
@@ -124,7 +145,7 @@ export default function page() {
                     className={`form-select   ms-4 ${Style.dorpdownBtn}`}
                     aria-label="Large select example"
                   >
-                    <option selected></option>
+                    <option selected {...register("BloodGroup")}></option>
                     {stateInstance.bloodGroups.map((grp: any) => (
                       <option key={grp}>{grp}</option>
                     ))}
@@ -146,6 +167,7 @@ export default function page() {
               <select
                 className={`form-select    ${Style.inputDistrictContainer}`}
                 aria-label="Large select example"
+                {...register("district")}
               >
                 <option selected></option>
                 {stateInstance.keralaDistricts.map((grp: any) => (
@@ -162,6 +184,7 @@ export default function page() {
                 <select
                   className={`form-select  ${Style.stateDorpdownBtn}`}
                   aria-label="Large select example"
+                  {...register("state")}
                 >
                   <option selected></option>
                   {stateInstance.indianStates.map((state: any) => (
@@ -185,6 +208,7 @@ export default function page() {
               aria-label="pin code "
               style={{ marginRight: "98px" }}
               className={Style.nameInputField}
+              {...register("pinCode")}
             />
           </div>
         </div>
@@ -202,6 +226,7 @@ export default function page() {
               placeholder="Month"
               style={{ marginRight: "100px" }}
               className={Style.nameInputField}
+              {...register("lastDonationMonth")}
             />
             <input
               type="text"
@@ -209,6 +234,7 @@ export default function page() {
               placeholder="Year"
               style={{ marginRight: "40px" }}
               className={Style.nameInputField}
+              {...register("lastDonationYear")}
             />
           </div>
         </div>
@@ -232,7 +258,7 @@ export default function page() {
         {submitState ? (
           <div className={Style.submitBoxContainer}>
             <button
-              type="button"
+              type="submit"
               onClick={() => {
                 handleClickSubmit();
               }}
@@ -257,12 +283,11 @@ export default function page() {
         {alertOpen ? (
           <div className="alert alert-dark alert-dismissible" role="alert">
             {alertMessage}
-            
           </div>
         ) : (
           <></>
         )}
-      </div>
+      </form>
     </div>
   );
 }
