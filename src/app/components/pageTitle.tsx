@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../styles/pageTitle.module.css";
+import style from "../../styles/PageTitle.module.css";
 
 interface PageTitleProps {
   title: string;
