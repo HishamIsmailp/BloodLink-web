@@ -1,0 +1,8 @@
+.mainContianer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contianer{
+  width: 95vw;
+}

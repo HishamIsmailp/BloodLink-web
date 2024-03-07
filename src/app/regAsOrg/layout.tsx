@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-export default function regAsDonerLayout({
+export default function regAsOrgLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

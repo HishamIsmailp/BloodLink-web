@@ -6,9 +6,9 @@ import Submiticon from "@/utils/images/submiticon";
 import Submiticonwhite from "@/utils/images/submiticonwhite";
 import State from "../../utils/objects";
 import { fromInputs } from "@/utils/types";
-import Style from "../../styles/regAsDoner.module.css";
+import Style from "../../styles/RegAsDoner.module.css";
 
-export default function page() {
+export default function RegAsDoner() {
   const [submitState, setSubmitState] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -24,13 +24,13 @@ export default function page() {
     console.log("*fromInputs**", data);
 
   const handleCheckboxChange = () => {
-    if (submitState == true) {
+    if (submitState) {
       setSubmitState(false);
     } else setSubmitState(true);
   };
 
   const handleClickSubmit = () => {
-    if (submitState == true) {
+    if (submitState) {
       setAlertOpen(true);
       setAlertMessage("Done");
     } else {
@@ -49,16 +49,15 @@ export default function page() {
       >
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
+            <span className={Style.inputTitle}>
               Full Name
             </span>
           </div>
-          <div style={{ width: "80vw" }}>
+          <div className={Style.inputContainer}>
             <input
               type="text"
               aria-label="First name"
               placeholder="Fist name"
-              style={{ marginRight: "100px" }}
               className={Style.nameInputField}
               {...register("firstName")}
             />
@@ -66,20 +65,19 @@ export default function page() {
               type="text"
               aria-label="Last name"
               placeholder="Last name"
-              style={{ marginRight: "40px" }}
               className={Style.nameInputField}
               {...register("lastname")}
             />
-          </div>
+            </div>
         </div>
         {/* /////////// */}
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
+            <span className={Style.inputTitle}>
               Phone Number
             </span>
           </div>
-          <div style={{ width: "80vw" }}>
+          <div className={Style.inputContainer}>
             <input
               type="text"
               aria-label="Number"
@@ -92,11 +90,11 @@ export default function page() {
         {/* /////////// */}
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
+            <span className={Style.inputTitle}>
               Email
             </span>
           </div>
-          <div style={{ width: "80vw" }}>
+          <div className={Style.inputContainer}>
             <input
               type="text"
               aria-label="Email"
@@ -109,16 +107,15 @@ export default function page() {
         {/* /////// */}
         <div className={Style.InputGroup}>
           <div className={Style.addressTitleContainer}>
-            <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
+            <span className={Style.inputTitle}>
               Address
             </span>
           </div>
-          <div style={{ width: "80vw", display: "flex", flexDirection: "row" }}>
+          <div className={Style.inputContainer}>
             <input
               type="text"
               aria-label="address"
               placeholder="address"
-              style={{ marginRight: "100px" }}
               className={Style.addressInputField}
               {...register("address")}
             />
@@ -146,6 +143,7 @@ export default function page() {
                     aria-label="Large select example"
                   >
                     <option selected {...register("BloodGroup")}></option>
+                    <option></option>
                     {stateInstance.bloodGroups.map((grp: any) => (
                       <option key={grp}>{grp}</option>
                     ))}
@@ -158,18 +156,18 @@ export default function page() {
         {/* //////////// */}
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
+            <span className={Style.inputTitle}>
               District
             </span>
           </div>
-          <div style={{ width: "80vw", display: "flex", flexDirection: "row" }}>
-            <div className={`dropdown ${Style.dorpdownBtnContainer}`}>
+          <div className={Style.inputContainer}>
+            <div className={`dropdown ${Style.dorpdownBtnContainerDist}`}>
               <select
                 className={`form-select    ${Style.inputDistrictContainer}`}
                 aria-label="Large select example"
                 {...register("district")}
               >
-                <option selected></option>
+                <option></option>
                 {stateInstance.keralaDistricts.map((grp: any) => (
                   <option key={grp}>{grp}</option>
                 ))}
@@ -177,16 +175,15 @@ export default function page() {
             </div>
             <div className={Style.stateContainer}>
               <div className={Style.agebloodTitleContiner}>
-                {" "}
                 <span className={Style.inputTitle}>State</span>
               </div>
-              <div className={`dropdown ${Style.dorpdownBtnContainer}`}>
+              <div className={`dropdown ${Style.dorpdownBtnContainerState}`}>
                 <select
                   className={`form-select  ${Style.stateDorpdownBtn}`}
                   aria-label="Large select example"
                   {...register("state")}
                 >
-                  <option selected></option>
+                  <option></option>
                   {stateInstance.indianStates.map((state: any) => (
                     <option key={state}>{state}</option>
                   ))}
@@ -197,12 +194,12 @@ export default function page() {
         </div>
         {/* /////// */}
         <div className={Style.InputGroup}>
-          <div className={Style.inputTitleContainer}>
-            <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
+          <div className={Style.inputTitleContainer} style={{margin: "0% 9% 0% 1.5%"}}>
+            <span className={Style.inputTitle}>
               pin code
             </span>
           </div>
-          <div style={{ width: "80vw", display: "flex", flexDirection: "row" }}>
+          <div className={Style.pinInputContainer} >
             <input
               type="text"
               aria-label="pin code "
@@ -215,16 +212,15 @@ export default function page() {
         {/* ///// */}
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span style={{ marginRight: "40px" }} className={Style.inputTitle}>
+            <span className={Style.inputTitle}>
               Last Donation
             </span>
           </div>
-          <div style={{ width: "80vw" }}>
+          <div className={Style.inputContainer}>
             <input
               type="text"
               aria-label="month"
               placeholder="Month"
-              style={{ marginRight: "100px" }}
               className={Style.nameInputField}
               {...register("lastDonationMonth")}
             />
@@ -232,11 +228,10 @@ export default function page() {
               type="text"
               aria-label="year"
               placeholder="Year"
-              style={{ marginRight: "40px" }}
               className={Style.nameInputField}
               {...register("lastDonationYear")}
             />
-          </div>
+            </div>
         </div>
         {/* /////// */}
         <div className={Style.tickBoxContainer}>
