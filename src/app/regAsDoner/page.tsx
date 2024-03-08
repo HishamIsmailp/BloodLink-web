@@ -1,12 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import * as yup from "yup";
+import FormInputText from "../components/formComponet/formtext";
+import FormTextAreInput from "../components/formComponet/formtextarea";
+import FormSelectInput from "../components/formComponet/formselect";
+import SubButton from "../components/buttons/submitbutton";
+import Alert from "../components/alert";
 import PageTitle from "../components/pageTitle";
 import Submiticon from "@/utils/images/submiticon";
 import Submiticonwhite from "@/utils/images/submiticonwhite";
 import State from "../../utils/objects";
 import { fromInputs } from "@/utils/types";
-import Style from "../../styles/RegAsDoner.module.css";
+import Style from "../../styles/regAsDoner.module.css";
 
 export default function RegAsDoner() {
   const [submitState, setSubmitState] = useState(false);
@@ -14,14 +20,20 @@ export default function RegAsDoner() {
   const [alertMessage, setAlertMessage] = useState("");
   const stateInstance = new State();
 
+  const validationSchema = yup.object().shape({
+    firstName: yup.string().required().label("First name"),
+    phoneNumber: yup.string().required().label("Number"),
+  });
+
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<fromInputs>();
   const onSubmit: SubmitHandler<fromInputs> = (data) =>
     console.log("*fromInputs**", data);
+    console.log("erorr data:::",errors);
+    
 
   const handleCheckboxChange = () => {
     if (submitState) {
@@ -49,87 +61,78 @@ export default function RegAsDoner() {
       >
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span className={Style.inputTitle}>
-              Full Name
-            </span>
+            <span className={Style.inputTitle}>Full Name</span>
           </div>
           <div className={Style.inputContainer}>
-            <input
-              type="text"
-              aria-label="First name"
+            <FormInputText
+              css={Style.nameInputField}
+              takeValue={{ ...register("firstName") }}
+              label="First name"
               placeholder="Fist name"
-              className={Style.nameInputField}
-              {...register("firstName")}
-            />
-            <input
               type="text"
-              aria-label="Last name"
-              placeholder="Last name"
-              className={Style.nameInputField}
-              {...register("lastname")}
             />
-            </div>
+            <FormInputText
+              css={Style.nameInputField}
+              label="Last Name"
+              placeholder="Last Name"
+              takeValue={{ ...register("lastname") }}
+              type="text"
+            />
+          </div>
         </div>
         {/* /////////// */}
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span className={Style.inputTitle}>
-              Phone Number
-            </span>
+            <span className={Style.inputTitle}>Phone Number</span>
           </div>
           <div className={Style.inputContainer}>
-            <input
+            <FormInputText
               type="text"
-              aria-label="Number"
+              label="Number"
               placeholder="Number"
-              className={Style.phoneInputField}
-              {...register("phoneNumber")}
+              css={Style.phoneInputField}
+              takeValue={{ ...register("phoneNumber") }}
             />
           </div>
         </div>
         {/* /////////// */}
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span className={Style.inputTitle}>
-              Email
-            </span>
+            <span className={Style.inputTitle}>Email</span>
           </div>
           <div className={Style.inputContainer}>
-            <input
+            <FormInputText
               type="text"
-              aria-label="Email"
-              placeholder="Mail  Id "
-              className={Style.phoneInputField}
-              {...register("email")}
+              label="Email"
+              placeholder="Mail Id"
+              css={Style.phoneInputField}
+              takeValue={{ ...register("email") }}
             />
           </div>
         </div>
         {/* /////// */}
         <div className={Style.InputGroup}>
           <div className={Style.addressTitleContainer}>
-            <span className={Style.inputTitle}>
-              Address
-            </span>
+            <span className={Style.inputTitle}>Address</span>
           </div>
           <div className={Style.inputContainer}>
-            <input
-              type="text"
-              aria-label="address"
+            <FormTextAreInput
+              label="address"
               placeholder="address"
-              className={Style.addressInputField}
-              {...register("address")}
+              css={Style.addressInputField}
+              takeValue={{ ...register("address") }}
             />
             <div className={Style.agebloodcontainer}>
               <div className={Style.agebloodSubcontainer}>
                 <div className={Style.agebloodTitleContiner}>
                   <span className={Style.inputTitle}>Age</span>
                 </div>
-                <input
+                <FormInputText
                   type="text"
-                  aria-label="Last name"
+                  label="Last Name"
                   placeholder="Age"
-                  className={Style.agebloodInputfield}
-                  {...register("age")}
+                  css={Style.agebloodInputfield}
+                  takeValue={{ ...register("age") }}
                 />
               </div>
               <div className={Style.agebloodSubcontainer}>
@@ -138,16 +141,12 @@ export default function RegAsDoner() {
                   <span className={Style.inputTitle}>Blood Group</span>
                 </div>
                 <div className={`dropdown ${Style.dorpdownBtnContainer}`}>
-                  <select
-                    className={`form-select   ms-4 ${Style.dorpdownBtn}`}
-                    aria-label="Large select example"
-                  >
-                    <option selected {...register("BloodGroup")}></option>
-                    <option></option>
-                    {stateInstance.bloodGroups.map((grp: any) => (
-                      <option key={grp}>{grp}</option>
-                    ))}
-                  </select>
+                  <FormSelectInput
+                    css={`form-select  ms-4 ${Style.dorpdownBtn}`}
+                    label="Large select example"
+                    takeValue={{ ...register("BloodGroup") }}
+                    options={stateInstance.bloodGroups}
+                  />
                 </div>
               </div>
             </div>
@@ -156,82 +155,66 @@ export default function RegAsDoner() {
         {/* //////////// */}
         <div className={Style.InputGroup}>
           <div className={Style.inputTitleContainer}>
-            <span className={Style.inputTitle}>
-              District
-            </span>
+            <span className={Style.inputTitle}>District</span>
           </div>
           <div className={Style.inputContainer}>
             <div className={`dropdown ${Style.dorpdownBtnContainerDist}`}>
-              <select
-                className={`form-select    ${Style.inputDistrictContainer}`}
-                aria-label="Large select example"
-                {...register("district")}
-              >
-                <option></option>
-                {stateInstance.keralaDistricts.map((grp: any) => (
-                  <option key={grp}>{grp}</option>
-                ))}
-              </select>
+              <FormSelectInput
+                css={`form-select    ${Style.inputDistrictContainer}`}
+                label="Large select example"
+                takeValue={{ ...register("district") }}
+                options={stateInstance.keralaDistricts}
+              />
             </div>
             <div className={Style.stateContainer}>
               <div className={Style.agebloodTitleContiner}>
                 <span className={Style.inputTitle}>State</span>
               </div>
               <div className={`dropdown ${Style.dorpdownBtnContainerState}`}>
-                <select
-                  className={`form-select  ${Style.stateDorpdownBtn}`}
-                  aria-label="Large select example"
-                  {...register("state")}
-                >
-                  <option></option>
-                  {stateInstance.indianStates.map((state: any) => (
-                    <option key={state}>{state}</option>
-                  ))}
-                </select>
+                <FormSelectInput
+                  css={Style.stateDorpdownBtn}
+                  label="large select example"
+                  takeValue={{ ...register("state") }}
+                  options={stateInstance.indianStates}
+                />
               </div>
             </div>
           </div>
         </div>
         {/* /////// */}
         <div className={Style.InputGroup}>
-          <div className={Style.inputTitleContainer} style={{margin: "0% 9% 0% 1.5%"}}>
-            <span className={Style.inputTitle}>
-              pin code
-            </span>
+          <div
+            className={Style.inputTitleContainer}
+            style={{ marginRight: "51px" }}
+          >
+            <span className={Style.inputTitle}>pin code</span>
           </div>
-          <div className={Style.pinInputContainer} >
-            <input
+          <div className={Style.pinInputContainer}>
+            <FormInputText
               type="text"
-              aria-label="pin code "
-              style={{ marginRight: "98px" }}
-              className={Style.nameInputField}
-              {...register("pinCode")}
+              label="Pin Code"
+              placeholder="Pin Code"
+              css={Style.nameInputField}
+              takeValue={{ ...register("pinCode") }}
             />
           </div>
         </div>
         {/* ///// */}
         <div className={Style.InputGroup}>
-          <div className={Style.inputTitleContainer}>
-            <span className={Style.inputTitle}>
-              Last Donation
-            </span>
+          <div
+            className={Style.inputTitleContainer}
+            style={{ marginRight: "51px" }}
+          >
+            <span className={Style.inputTitle}>Last Donation</span>
           </div>
-          <div className={Style.inputContainer}>
-            <input
-              type="text"
-              aria-label="month"
-              placeholder="Month"
-              className={Style.nameInputField}
-              {...register("lastDonationMonth")}
+          <div className={Style.pinInputContainer}>
+            <FormInputText
+              type="month"
+              label="month"
+              css={Style.nameInputField}
+              takeValue={{ ...register("lastDonationdate") }}
             />
-            <input
-              type="text"
-              aria-label="year"
-              placeholder="Year"
-              className={Style.nameInputField}
-              {...register("lastDonationYear")}
-            />
-            </div>
+          </div>
         </div>
         {/* /////// */}
         <div className={Style.tickBoxContainer}>
@@ -252,33 +235,30 @@ export default function RegAsDoner() {
         {/* //// */}
         {submitState ? (
           <div className={Style.submitBoxContainer}>
-            <button
+            <SubButton
+              name="Submit"
               type="submit"
-              onClick={() => {
-                handleClickSubmit();
-              }}
-              className={`shadow ${Style.subButtonWhite}`}
-            >
-              Submit <Submiticonwhite />
-            </button>
+              css={`shadow ${Style.subButtonWhite}`}
+              onClick={handleClickSubmit}
+              icon={<Submiticonwhite />}
+            />
           </div>
         ) : (
           <div className={Style.submitBoxContainer}>
-            <button
+            <SubButton
+              name="Submit"
               type="button"
-              onClick={() => {
-                handleClickSubmit();
-              }}
-              className={`shadow ${Style.subButton}`}
-            >
-              Submit <Submiticon />
-            </button>
+              css={`shadow ${Style.subButton}`}
+              onClick={handleClickSubmit}
+              icon={<Submiticon />}
+            />
           </div>
         )}
         {alertOpen ? (
-          <div className="alert alert-dark alert-dismissible" role="alert">
-            {alertMessage}
-          </div>
+          <Alert
+            alertMessage={alertMessage}
+            css="alert alert-dark alert-dismissible"
+          />
         ) : (
           <></>
         )}

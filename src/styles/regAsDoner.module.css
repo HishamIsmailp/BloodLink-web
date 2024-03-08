@@ -24,12 +24,12 @@
   justify-content: space-around;
   align-items: center;
   width: 90vw;
-  padding-left: 25px;
+  padding-left:5px;
 }
 .inputContainer{
   width: 75vw;
   display: flex;
-  justify-content: space-evenly ;
+  justify-content: space-around ;
 }
 .pinInputContainer{
   width: 75vw;
@@ -61,7 +61,7 @@
   font-weight: bold;
 }
 .phoneInputField {
-  width: 910px;
+  width: 880px;
   height: 40px;
   color: #000;
   border-radius: 5px;
@@ -190,6 +190,10 @@
   color: black;
 }
 .addressInputField::placeholder {
+  padding-left: 20px;
+  color: black;
+}
+.agebloodInputfield::placeholder{
   padding-left: 20px;
   color: black;
 }
