@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Submiticonwhite() {
+export default function SubmitIconWhite () {
   return (
     <div>
       <svg

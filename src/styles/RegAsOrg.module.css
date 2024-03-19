@@ -1,8 +1,74 @@
-.mainContianer{
+.mainContianer {
+  width: 95vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+.contianer {
+  width: 95vw;
+  height: 80vh;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  justify-self: center;
+  margin-bottom: 20px;
 }
-.contianer{
-  width: 95vw;
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+}
+.inputTitleContainer{
+  width: 180px;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+}
+.nameInputField {
+  width: 400px;
+  height: 40px;
+  color: #000;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+.addressInputField {
+  width: 400px;
+  height: 130px;
+  color: #000;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+.submitBoxContainer {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: flex-end;
+  padding-right: 70px;
+}
+.subButtonWhite{
+  width: 140px;
+  height: 40px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: #121111;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+}
+
+.nameInputField,
+.phoneInputField,
+.addressInputField::placeholder {
+  padding-left: 20px;
 }

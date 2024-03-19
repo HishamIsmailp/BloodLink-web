@@ -13,12 +13,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let camelcase = "hello";
   return (
     <html lang="en">
       <body>
         <div>{children}</div>
         </body>
       <BootstrapJs />
+      {camelcase}
     </html>
   );
 }

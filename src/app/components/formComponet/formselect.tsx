@@ -4,7 +4,7 @@ interface FormInputProps {
     label?: string;
     css?: string;
     takeValue?:any;
-    helpertaxt?:string;
+    helperText?: string;
     options:any
 }
 
@@ -12,7 +12,7 @@ const FormSelectInput: React.FC<FormInputProps> = ({
     label,
     css,
     takeValue,
-    helpertaxt,
+    helperText,
     options
 }) => {
     return (
@@ -27,7 +27,7 @@ const FormSelectInput: React.FC<FormInputProps> = ({
                       <option value={data} key={index}>{data}</option>
                     ))}
                   </select>
-        <span color='red'>{helpertaxt}</span>
+        <span color='red'>{helperText}</span>
         </div>
     );
 };

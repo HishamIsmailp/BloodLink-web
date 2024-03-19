@@ -8,10 +8,10 @@ import FormSelectInput from "../components/formComponet/formselect";
 import SubButton from "../components/buttons/submitbutton";
 import Alert from "../components/alert";
 import PageTitle from "../components/pageTitle";
-import Submiticon from "@/utils/images/submiticon";
-import Submiticonwhite from "@/utils/images/submiticonwhite";
+import SubmitIcon from "@/utils/images/submiticon";
+import SubmitIconWhite from "@/utils/images/submiticonwhite";
 import State from "../../utils/objects";
-import { fromInputs } from "@/utils/types";
+import { DonerFromInputs } from "@/utils/types";
 import Style from "../../styles/regAsDoner.module.css";
 
 export default function RegAsDoner() {
@@ -29,8 +29,8 @@ export default function RegAsDoner() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<fromInputs>();
-  const onSubmit: SubmitHandler<fromInputs> = (data) =>
+  } = useForm<DonerFromInputs>();
+  const onSubmit: SubmitHandler<DonerFromInputs> = (data) =>
     console.log("*fromInputs**", data);
     console.log("erorr data:::",errors);
     
@@ -75,7 +75,7 @@ export default function RegAsDoner() {
               css={Style.nameInputField}
               label="Last Name"
               placeholder="Last Name"
-              takeValue={{ ...register("lastname") }}
+              takeValue={{ ...register("lastName") }}
               type="text"
             />
           </div>
@@ -212,7 +212,7 @@ export default function RegAsDoner() {
               type="month"
               label="month"
               css={Style.nameInputField}
-              takeValue={{ ...register("lastDonationdate") }}
+              takeValue={{ ...register("lastDonationDate") }}
             />
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function RegAsDoner() {
               type="submit"
               css={`shadow ${Style.subButtonWhite}`}
               onClick={handleClickSubmit}
-              icon={<Submiticonwhite />}
+              icon={<SubmitIconWhite />}
             />
           </div>
         ) : (
@@ -250,7 +250,7 @@ export default function RegAsDoner() {
               type="button"
               css={`shadow ${Style.subButton}`}
               onClick={handleClickSubmit}
-              icon={<Submiticon />}
+              icon={<SubmitIcon />}
             />
           </div>
         )}

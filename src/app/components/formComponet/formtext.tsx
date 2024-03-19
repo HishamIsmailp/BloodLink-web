@@ -7,7 +7,7 @@ interface FormInputProps {
     placeholder?: string;
     css?: string;
     takeValue?:any;
-    helpertaxt?:string;
+    helperText?:string;
     onClick?: any; 
 }
 
@@ -18,7 +18,7 @@ const FormInputText: React.FC<FormInputProps> = ({
     placeholder,
     css,
     takeValue,
-    helpertaxt,
+    helperText,
     onClick,
     ...rest
 }) => {
@@ -34,7 +34,7 @@ const FormInputText: React.FC<FormInputProps> = ({
             {...takeValue}
             {...rest}   
         />
-        <span color='red'>{helpertaxt}</span>
+        <span color='red'>{helperText}</span>
         </div>
     );
 };

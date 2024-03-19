@@ -1,6 +1,6 @@
- export type fromInputs = {
+ export type DonerFromInputs = {
    firstName?:string;
-   lastname?:string;
+   lastName?:string;
    phoneNumber?:string;
    email?:string;
    address?:string;
@@ -9,5 +9,12 @@
    district?:string;
    state?:string;
    pinCode?:number;
-   lastDonationdate?:string;
+   lastDonationDate?:string;
+  }
+
+  export type OrgFromInputs = {
+    orgName:string;
+    address?:string;
+    headOfOrg?:string;
+    phoneNumber?:number;
   }

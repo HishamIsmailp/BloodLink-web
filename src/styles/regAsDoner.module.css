@@ -185,10 +185,7 @@
 }
 
 .nameInputField,
-.phoneInputField::placeholder {
-  padding-left: 20px;
-  color: black;
-}
+.phoneInputField,
 .addressInputField::placeholder {
   padding-left: 20px;
   color: black;
